@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Web3 from "web3";
+import { ethers } from "ethers";
+import { useState } from "react";
+import { Layout } from "antd";
+import SlideBar from "./components/SlideBar";
 
 function App() {
+  const { Sider, Content } = Layout;
+
+  const [infoAccount, setInfoAccount] = useState({
+    balance: 0,
+    address: "",
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Layout className="h-full">
+        <Sider className="style-slidebar">
+          <SlideBar />
+        </Sider>
+        <Layout>
+          <Content style={{ background: "red" }}>Content</Content>
+        </Layout>
+      </Layout>
+    </>
   );
 }
 
