@@ -1,4 +1,5 @@
 import { Menu, Button } from "antd";
+import { Link } from "react-router-dom";
 import {
   DashboardOutlined,
   SendOutlined,
@@ -60,10 +61,11 @@ function SlideBar({ infoAccount }) {
           key="1"
           icon={<DashboardOutlined style={{ fontSize: "24px" }} />}
         >
-          Dashboard
+          <Link to="/dashboard">Dashboard</Link>
         </Menu.Item>
         <Menu.Item key="2" icon={<SendOutlined style={{ fontSize: "24px" }} />}>
-          Send Transaction
+          
+          <Link to="/send">Send Transaction</Link>
         </Menu.Item>
       </Menu>
 

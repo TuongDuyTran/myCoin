@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Web3 from "web3";
 import { ethers } from "ethers";
@@ -18,24 +18,20 @@ function App() {
   });
 
   return (
-    <>
-      <Router>
-        <Layout className="h-full">
-          <Sider className="style-slidebar">
-            <SlideBar infoAccount={infoAccount} />
-          </Sider>
-          <Layout>
-            <Content style={{ background: "#fff" }}>
-              <Routes>
-                <Route path="/" exact component={<Home />} />
-                <Route path="dashboard" component={<Dashboard />} />
-                <Route path="send" component={<SendTransaction />} />
-              </Routes>
-            </Content>
-          </Layout>
-        </Layout>
-      </Router>
-    </>
+    <Layout className="h-full">
+      <Sider className="style-slidebar">
+        <SlideBar infoAccount={infoAccount} />
+      </Sider>
+      <Layout>
+        <Content style={{ background: "#fff" }}>
+          <Routes>
+            <Route path="/" exact element={<Home />} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="send" element={<SendTransaction />} />
+          </Routes>
+        </Content>
+      </Layout>
+    </Layout>
   );
 }
 
