@@ -39,6 +39,27 @@
   width    : 300px !important;
 }
 
+.component-wallet {
+  border-radius: 16px;
+  width        : 100%;
+  position     : relative;
+}
+
+.component-wallet .background-wallet {
+  position     : absolute;
+  top          : 0;
+  left         : 0;
+  border-radius: 16px;
+  overflow     : hidden;
+  z-index      : 0;
+  height       : 100%;
+}
+
+.component-wallet .background-wallet img {
+  height: 100%;
+  width : 100%;
+}
+
 .info-container {
   background-color: rgba(84, 250, 7, 0.08);
   border-radius   : 16px;
@@ -48,11 +69,68 @@
   top             : 0;
   left            : 0;
   z-index         : 1;
-  text-shadow: 0 2px 8px rgb(0 0 0 / 24%), 0 1px 4px rgb(0 0 0 / 24%);
+  text-shadow     : 0 2px 8px rgb(0 0 0 / 24%), 0 1px 4px rgb(0 0 0 / 24%);
+  padding         : 20px;
+  color           : #fff;
+}
+
+.info-container .address {
+  font-size: 0.7rem;
+}
+
+.info-container .binance {
+  font-size  : 2rem;
+  font-weight: bold;
+  margin     : 10px 0;
+}
+
+.quick-action {
+  float: right;
+}
+
+.icon {
+  border-radius   : 10px !important;
+  height          : 32px !important;
+  width           : 32px !important;
+  font-size       : 16px !important;
+  background-color: rgba(255, 255, 255, 0.4) !important;
+  border-color    : #fff !important;
+  color           : rgb(72 72 72);
+  display         : inline-flex;
+  align-items     : center;
+  justify-content : center;
+  margin-left     : 10px;
 }
 
 .m-2 {
   margin: 30px;
+}
+
+.component-connect-wallet {
+  color          : #fff;
+  font-size      : 16px;
+  margin         : 10px 0;
+  display        : flex;
+  width          : 100%;
+  justify-content: center;
+  text-align     : center;
+}
+
+.connect-wallet {
+  width         : fit-content;
+  display       : flex;
+  flex-direction: column;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 2px dashed white;
+
+}
+
+.connect-wallet:hover {
+  background: rgba(160, 159, 159, 0.5);
+  color     : white;
+  cursor    : pointer;
+  box-sizing: border-box;
 }
 
 @keyframes App-logo-spin {

@@ -1,63 +1,81 @@
-import { Menu, Button } from 'antd';
+import { Menu, Button } from "antd";
 import {
-  AppstoreOutlined,
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-  PieChartOutlined,
-  DesktopOutlined,
-  ContainerOutlined,
-  MailOutlined,
-} from '@ant-design/icons';
+  DashboardOutlined,
+  SendOutlined,
+  QrcodeOutlined,
+  CopyOutlined,
+  LogoutOutlined,
+  ThunderboltOutlined,
+} from "@ant-design/icons";
 import "antd/dist/antd.css";
-import logo from '../logo.svg';
+import wallet from "./../download.png";
 
 const { SubMenu } = Menu;
 
-function SlideBar() {
+function SlideBar({ infoAccount }) {
+  const { address, balance } = infoAccount;
+
   return (
-      <>
-        <h3 style={{
-            paddingLeft: '40px',
-            margin: '5px 0',
-            color: '#fff',
-            fontSize: '2rem'
-        }}>myCoin</h3>
-        <div style={{
-            margin: '20px 30px'
-        }}>
-            <div className='info-container'></div>
+    <>
+      <h3
+        style={{
+          paddingLeft: "30px",
+          margin: "5px 0",
+          color: "#fff",
+          fontSize: "2rem",
+        }}
+      >
+        myCoin
+      </h3>
+      <div
+        style={{
+          margin: "20px 20px",
+        }}
+      >
+        <div className="component-wallet">
+          <div className="background-wallet">
+            <img src={wallet} />
+          </div>
+          <div className="info-container">
+            <div>MY PERSONAL ACCOUNT</div>
+            <div className="address">
+              {address.slice(0, 6)}...{address.slice(address.length - 6)}
+            </div>
+            <div className="binance">{balance} ETH</div>
+            <div className="quick-action">
+              <QrcodeOutlined className="icon" />
+              <CopyOutlined className="icon" />
+            </div>
+          </div>
         </div>
-        <Menu
-          defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
-          mode="inline"
-          theme="dark"
+      </div>
+      <div className="component-connect-wallet">
+        <div className="connect-wallet">
+          <ThunderboltOutlined style={{ fontSize: "24px" }} />
+          Connect
+        </div>
+      </div>
+      <Menu mode="inline" theme="dark">
+        <Menu.Item
+          key="1"
+          icon={<DashboardOutlined style={{ fontSize: "24px" }} />}
         >
-          <Menu.Item key="1" icon={<PieChartOutlined />}>
-            Option 1
-          </Menu.Item>
-          <Menu.Item key="2" icon={<DesktopOutlined />}>
-            Option 2
-          </Menu.Item>
-          <Menu.Item key="3" icon={<ContainerOutlined />}>
-            Option 3
-          </Menu.Item>
-          <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One">
-            <Menu.Item key="5">Option 5</Menu.Item>
-            <Menu.Item key="6">Option 6</Menu.Item>
-            <Menu.Item key="7">Option 7</Menu.Item>
-            <Menu.Item key="8">Option 8</Menu.Item>
-          </SubMenu>
-          <SubMenu key="sub2" icon={<AppstoreOutlined />} title="Navigation Two">
-            <Menu.Item key="9">Option 9</Menu.Item>
-            <Menu.Item key="10">Option 10</Menu.Item>
-            <SubMenu key="sub3" title="Submenu">
-              <Menu.Item key="11">Option 11</Menu.Item>
-              <Menu.Item key="12">Option 12</Menu.Item>
-            </SubMenu>
-          </SubMenu>
-        </Menu>
-      </>
+          Dashboard
+        </Menu.Item>
+        <Menu.Item key="2" icon={<SendOutlined style={{ fontSize: "24px" }} />}>
+          Send Transaction
+        </Menu.Item>
+      </Menu>
+
+      <Menu mode="inline" theme="dark">
+        <Menu.Item
+          key="3"
+          icon={<LogoutOutlined style={{ fontSize: "24px" }} />}
+        >
+          Logout
+        </Menu.Item>
+      </Menu>
+    </>
   );
 }
 
