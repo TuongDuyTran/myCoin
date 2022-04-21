@@ -1,4 +1,4 @@
-import { Menu, Button } from "antd";
+import { Menu } from "antd";
 import { Link } from "react-router-dom";
 import {
   DashboardOutlined,
@@ -11,9 +11,7 @@ import {
 import "antd/dist/antd.css";
 import wallet from "./../download.png";
 
-const { SubMenu } = Menu;
-
-function SlideBar({ infoAccount }) {
+function SlideBar({ infoAccount, handleConnect }) {
   const { address, balance } = infoAccount;
 
   return (
@@ -50,10 +48,10 @@ function SlideBar({ infoAccount }) {
           </div>
         </div>
       </div>
-      <div className="component-connect-wallet">
-        <div className="connect-wallet">
+      <div className="component-connect-wallet" onClick={handleConnect}>
+        <div className={infoAccount.isConnected ? "connect-wallet active" : "connect-wallet"}>
           <ThunderboltOutlined style={{ fontSize: "24px" }} />
-          Connect
+          {infoAccount.isConnected ? "Connected" : "Connect"}
         </div>
       </div>
       <Menu mode="inline" theme="dark">
