@@ -7,7 +7,11 @@
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.19.5",
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.0",
     "ethers": "^5.6.4",
+    "formik": "^2.2.9",
+    "formik-antd": "^2.0.4",
     "fs": "^0.0.1-security",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -17,7 +21,7 @@
     "web3": "^1.6.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set NODE_ENV=dev-local && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -48,12 +48,15 @@ function SlideBar({ infoAccount, handleConnect }) {
           </div>
         </div>
       </div>
-      <div className="component-connect-wallet" onClick={handleConnect}>
-        <div className={infoAccount.isConnected ? "connect-wallet active" : "connect-wallet"}>
-          <ThunderboltOutlined style={{ fontSize: "24px" }} />
-          {infoAccount.isConnected ? "Connected" : "Connect"}
+      <Link to="/connect">
+        <div className="component-connect-wallet">
+          <div className={infoAccount.isConnected ? "connect-wallet active" : "connect-wallet"}>
+            <ThunderboltOutlined style={{ fontSize: "24px" }} />
+            {infoAccount.isConnected ? "Connected" : "Connect"}
+          </div>
         </div>
-      </div>
+      </Link>
+      
       <Menu mode="inline" theme="dark">
         <Menu.Item
           key="1"

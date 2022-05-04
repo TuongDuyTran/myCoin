@@ -1,21 +1,25 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import Web3 from "web3";
-import { ethers } from "ethers";
 import { useState } from "react";
 import { Layout, Spin } from "antd";
 import SlideBar from "./components/SlideBar";
-import Dashboard from "./components/Dashboard";
-import SendTransaction from "./components/SendTransaction";
-import Home from "./components/Home";
+import { Home, Dashboard, SendTransaction, Connect } from "./pages/index";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 function App() {
   const { Sider, Content } = Layout;
+  
+  let account = localStorage.getItem("infoAccount");
+  if (account) {
+    account = JSON.parse(account);
+  }
 
   const [infoAccount, setInfoAccount] = useState({
-    balance: 0,
-    address: "",
-    isConnected: false,
+    address: account?.publicKey ? account.publicKey : "",
+    balance: account?.amount ? account.amount : 0,
+    isConnected: account?.id ? true : false
   });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -26,19 +30,6 @@ function App() {
       isConnected: true,
     });
     setIsLoading(true);
-    // const { ethereum } = window;
-    // const data = await ethereum.request({ method: "eth_requestAccounts" });
-    // const web3 = new Web3(
-    //   new Web3.providers.HttpProvider("http://localhost:7545")
-    // );
-
-    // web3.eth.getBalance(data[0]).then((value) => {
-    //   console.log("value", value);
-    //   setInfoAccount({
-    //     balance: ethers.utils.formatEther(value),
-    //     address: data[0],
-    //   });
-    // });
   };
 
   return (
@@ -47,7 +38,7 @@ function App() {
         <Layout className='absolute-center' style={{ 'display': isLoading ? 'flex' : 'none' }}>
           <Spin spinning={true} size="large"></Spin>
         </Layout>
-        <Layout style={{ "z-index": 1 }}>
+        <Layout style={{ zIndex: 1 }}>
           <Sider className="style-slidebar">
             <SlideBar infoAccount={infoAccount} handleConnect={handleConnect} />
           </Sider>
@@ -57,6 +48,7 @@ function App() {
                 <Route path="/" exact element={<Home />} />
                 <Route path="dashboard" element={<Dashboard />} />
                 <Route path="send" element={<SendTransaction />} />
+                <Route path="connect" element={<Connect />} />
               </Routes>
             </Content>
           </Layout>
