@@ -57,7 +57,7 @@ function App() {
               <Routes>
                 <Route path="/" exact element={<Connect setInfoAccount={setInfoAccount} setIsLoading={setIsLoading} />} />
                 <Route path="/home" exact element={<Home infoAccount={infoAccount} />} />
-                <Route path="dashboard" element={<Dashboard />} />
+                <Route path="dashboard" element={<Dashboard infoAccount={infoAccount} />} />
                 <Route path="send" element={<SendTransaction setIsLoading={setIsLoading} infoAccount={infoAccount} setInfoAccount={setInfoAccount} />} />
                 <Route path="connect" element={<Connect setInfoAccount={setInfoAccount} setIsLoading={setIsLoading} />} />
                 <Route path="create" element={<Create setIsLoading={setIsLoading} />} />

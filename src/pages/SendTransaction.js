@@ -12,7 +12,7 @@ function SendTransaction({ setIsLoading, infoAccount, setInfoAccount }) {
   };
 
   const onFinish = async (values) => {
-    if (values.receiver == infoAccount.address) {
+    if (values.receiver === infoAccount.address) {
       message.error("The receiver does not match the sender");
       return;
     }

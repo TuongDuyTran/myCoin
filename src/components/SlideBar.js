@@ -76,7 +76,7 @@ function SlideBar({ infoAccount, setInfoAccount }) {
           <Link to="/create">Create Wallet</Link>
         </Menu.Item>
         <Menu.Item key="3" icon={<DashboardOutlined style={{ fontSize: "24px" }} />}>
-          <Link to="/dashboard">Dashboard</Link>
+          <Link to="/dashboard">History Transaction</Link>
         </Menu.Item>
         <Menu.Item key="4" icon={<SendOutlined style={{ fontSize: "24px" }} />}>
           <Link to="/send">Send Transaction</Link>

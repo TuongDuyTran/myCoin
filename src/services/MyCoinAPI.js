@@ -9,6 +9,12 @@ MyCoinAPI.getInfo = (publicKey) => {
     });
 }
 
+MyCoinAPI.getHistory = (publicKey) => {
+    return request(service, "getHistory", "POST", {
+        publicKey
+    });
+}
+
 MyCoinAPI.connectWallet = (publicKey, privateKey) => {
     return request(service, "connectWallet", "POST", {
         publicKey, privateKey
