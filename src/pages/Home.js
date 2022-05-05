@@ -1,7 +1,8 @@
-function Home() {
+function Home({ infoAccount }) {
   return (
-    <main style={{ padding: "1rem 0" }}>
-      <h2>HOME</h2>
+    <main className="layout-main">
+      <h2>Welcome to myCoin</h2>
+      <h2>Hi, {infoAccount.name}</h2>
     </main>
   );
 }

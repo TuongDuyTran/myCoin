@@ -19,11 +19,11 @@ function Create({ setIsLoading }) {
             render: (text, record) => {
                 return <Space size="middle">
                     {
-                        record.key == 'publicKey' || record.key == 'privateKey' ? 
+                        record.key === 'publicKey' || record.key === 'privateKey' ? 
                         (<span>{shortAddress(record.value)}</span>) : 
                         (<>
                             {
-                                record.key == 'amount' ?
+                                record.key === 'amount' ?
                                 (<span>{record.value + " ETH"}</span>) :
                                 (<span>{record.value}</span>)
                             }
@@ -38,7 +38,7 @@ function Create({ setIsLoading }) {
             render: (text, record) => {
                 return <Space size="middle">
                     {
-                        text.field == 'Private key' || text.field == 'Address' ? (<CopyToClipboard text={text.value}>
+                        text.field === 'Private key' || text.field === 'Address' ? (<CopyToClipboard text={text.value}>
                             <a onClick={() => message.success("Copied")}>Copy</a>
                         </CopyToClipboard>) : (<></>)
                     }
@@ -78,7 +78,7 @@ function Create({ setIsLoading }) {
         const res = await MyCoinAPI.createWallet(values.name, values.initAmount);
         setTimeout(() => {
             console.log(res);
-            if (res.code == 200) {
+            if (res.code === 200) {
                 data.forEach(item => {
                     Object.keys(res.data).forEach(key => {
                         if (key === item.key) {
