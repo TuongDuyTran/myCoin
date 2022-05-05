@@ -1,6 +1,7 @@
 import { Menu } from "antd";
 import { Link } from "react-router-dom";
 import {
+  WalletOutlined,
 	DashboardOutlined,
 	SendOutlined,
 	QrcodeOutlined,
@@ -13,6 +14,11 @@ import wallet from "./../download.png";
 
 function SlideBar({ infoAccount, handleConnect }) {
 	const { address, balance } = infoAccount;
+
+  const shortAddress = (address) => {
+    return address.slice(0, 6) + "..." + address.slice(address.length - 6);
+  }
+
 	return (
 		<>
 			<h3
@@ -37,8 +43,7 @@ function SlideBar({ infoAccount, handleConnect }) {
 					<div className="info-container">
 						<div>MY PERSONAL ACCOUNT</div>
 						<div className="address">
-							{address.slice(0, 6)}...
-							{address.slice(address.length - 6)}
+							{shortAddress(address)}
 						</div>
 						<div className="binance">{balance} ETH</div>
 						<div className="quick-action">
@@ -57,16 +62,16 @@ function SlideBar({ infoAccount, handleConnect }) {
         </div>
       </Link>
 			<Menu mode="inline" theme="dark">
-				<Menu.Item key="1" icon={<DashboardOutlined style={{ fontSize: "24px" }} />}>
+      <Menu.Item key="1" icon={<WalletOutlined style={{ fontSize: "24px" }} />}>
+					<Link to="/create">Create wallet</Link>
+				</Menu.Item>
+				<Menu.Item key="2" icon={<DashboardOutlined style={{ fontSize: "24px" }} />}>
 					<Link to="/dashboard">Dashboard</Link>
 				</Menu.Item>
-				<Menu.Item key="2" icon={<SendOutlined style={{ fontSize: "24px" }} />}>
+				<Menu.Item key="3" icon={<SendOutlined style={{ fontSize: "24px" }} />}>
 					<Link to="/send">Send Transaction</Link>
 				</Menu.Item>
-			</Menu>
-
-			<Menu mode="inline" theme="dark">
-				<Menu.Item key="3" icon={<LogoutOutlined style={{ fontSize: "24px" }} />}>
+        <Menu.Item key="4" icon={<LogoutOutlined style={{ fontSize: "24px" }} />}>
 					Logout
 				</Menu.Item>
 			</Menu>

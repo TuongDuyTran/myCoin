@@ -3,7 +3,7 @@ import "./App.css";
 import { useState } from "react";
 import { Layout, Spin } from "antd";
 import SlideBar from "./components/SlideBar";
-import { Home, Dashboard, SendTransaction, Connect } from "./pages/index";
+import { Home, Dashboard, SendTransaction, Connect, Create } from "./pages/index";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -49,6 +49,7 @@ function App() {
                 <Route path="dashboard" element={<Dashboard />} />
                 <Route path="send" element={<SendTransaction />} />
                 <Route path="connect" element={<Connect />} />
+                <Route path="create" element={<Create setIsLoading={setIsLoading} />} />
               </Routes>
             </Content>
           </Layout>

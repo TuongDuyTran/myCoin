@@ -9,4 +9,10 @@ MyCoinAPI.connectWallet = (publicKey, privateKey) => {
     });
 }
 
+MyCoinAPI.createWallet = (name, initAmount) => {
+    return request(service, "createWallet", "POST", {
+        name, initAmount
+    });
+}
+
 export default MyCoinAPI;
